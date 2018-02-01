@@ -71,8 +71,6 @@ public class ColorPickerPreference extends Preference implements
 
     private final Context mContext;
 
-    //private boolean mIsCrappyLedDevice;
-
     public ColorPickerPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         this(context, attrs, defStyleAttr, 0);
     }
@@ -119,6 +117,8 @@ public class ColorPickerPreference extends Preference implements
         if (attrs != null) {
             mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", false);
             mDefaultValue = attrs.getAttributeIntValue(ANDROIDNS, "defaultValue", Color.BLACK);
+            mShowLedPreview = attrs.getAttributeBooleanValue(null, "ledPreview", false);
+            mIsLedColorPicker = attrs.getAttributeBooleanValue(null, "isledPicker", false);
             mShowReset = attrs.getAttributeBooleanValue(SETTINGS_NS, "showReset", true);
             mShowPreview = attrs.getAttributeBooleanValue(SETTINGS_NS, "showPreview", true);
             mDividerAbove = attrs.getAttributeBooleanValue(SETTINGS_NS, "dividerAbove", false);
@@ -249,7 +249,7 @@ public class ColorPickerPreference extends Preference implements
     }
 
     protected void showDialog(Bundle state) {
-        mDialog = new ColorPickerDialog(getContext(), mCurrentValue);
+        mDialog = new ColorPickerDialog(getContext(), mCurrentValue, mShowLedPreview);
         mDialog.setOnColorChangedListener(this);
         if (mAlphaSliderEnabled) {
             mDialog.setAlphaSliderVisible(true);
