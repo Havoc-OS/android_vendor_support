@@ -30,7 +30,7 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.android.internal.util.custom.Utils;
+// import com.android.internal.util.custom.Utils;
 
 import com.havoc.support.R;
 import com.havoc.support.colorpicker.ColorPickerDialog;
@@ -312,9 +312,9 @@ public class ColorBlendPreference extends Preference
 
     private void updateDialogSliderPreview() {
         int currentPreview = mDialogColorPreviewSlider.getProgress();
-        mDialogPreviewColorBetween.setBackgroundColor(
-                Utils.getBlendColorForPercent(mPreviewColorEnd, mPreviewColorStart,
-                        mPreviewBlendReverse, currentPreview));
+        // mDialogPreviewColorBetween.setBackgroundColor(
+        //         Utils.getBlendColorForPercent(mPreviewColorEnd, mPreviewColorStart,
+        //                 mPreviewBlendReverse, currentPreview));
         mDialogColorPreviewText.setText(
                 getContext().getString(R.string.color_blend_preview, currentPreview));
     }
@@ -372,8 +372,8 @@ public class ColorBlendPreference extends Preference
             mViewColorEnd.setBackgroundColor(mColorEnd);
         }
         if (mViewColorBetween != null) {
-            mViewColorBetween.setBackgroundColor(
-                    Utils.getBlendColorForPercent(mColorEnd, mColorStart, mBlendReverse, 50));
+            // mViewColorBetween.setBackgroundColor(
+            //         Utils.getBlendColorForPercent(mColorEnd, mColorStart, mBlendReverse, 50));
         }
     }
 
